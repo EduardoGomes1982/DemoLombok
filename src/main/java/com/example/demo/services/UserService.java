@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,7 +25,7 @@ public class UserService implements UserDetailsService {
 	private AuthService authService;
 
     public List<UserDTO> searchAllUsers() {
-        return repository.findAll().stream().map(e -> new UserDTO(e)).toList();
+        return repository.findAll().stream().map(e -> new UserDTO(e)).collect(Collectors.toList());
     }
 
     public UserDTO searchUserByEmail(String email) {

@@ -3,6 +3,7 @@ package com.example.demo.entities;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -116,7 +117,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles().stream().map(e -> new SimpleGrantedAuthority(e.getAuthority())).toList();
+        return getRoles().stream().map(e -> new SimpleGrantedAuthority(e.getAuthority())).collect(Collectors.toList());
     }
 
     @Override

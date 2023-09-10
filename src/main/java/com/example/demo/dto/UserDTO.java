@@ -2,35 +2,27 @@ package com.example.demo.dto;
 
 import com.example.demo.entities.User;
 
-public class UserDTO {
-    private Long id;
-    private String name;
-    private String email;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
-    public UserDTO() {
-    }
-    
-    public UserDTO(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
+@Getter
+@NoArgsConstructor
+@RequiredArgsConstructor
+public class UserDTO {
+    @NonNull
+    private Long id;
+
+    @NonNull
+    private String name;
+
+    @NonNull
+    private String email;
 
     public UserDTO(User entity) {
         id = entity.getId();
         name = entity.getName();
         email = entity.getEmail();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
     }
 }

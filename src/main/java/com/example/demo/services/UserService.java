@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -17,7 +18,7 @@ import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.exceptions.ResourceNotFoundException;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService, Serializable {
     @Autowired
     private UserRepository repository;
 

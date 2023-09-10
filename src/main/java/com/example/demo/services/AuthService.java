@@ -19,7 +19,6 @@ public class AuthService {
     public User authenticated() {
         try {
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
-            System.out.println(username);
             return userRepository.findByEmail(username).get();
         } catch (Exception e) {
             throw new UnauthorizedException("Invalid user");

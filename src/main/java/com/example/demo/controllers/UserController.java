@@ -31,6 +31,6 @@ public class UserController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<UserDTO> searchById(@PathVariable Long id) {
         User user = authService.authenticated();
-        return ResponseEntity.ok().body(service.findById(id));
+        return ResponseEntity.ok().body(new UserDTO(user));
     }
 }
